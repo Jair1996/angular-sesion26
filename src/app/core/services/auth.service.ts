@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { User } from '../models/user.model';
 import { UserService } from './user.service';
 
@@ -21,5 +21,13 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('user');
+  }
+
+  verifyAuthentication(): Observable<boolean> {
+    if (localStorage.getItem('user')) {
+      return of(true);
+    }
+
+    return of(false);
   }
 }
