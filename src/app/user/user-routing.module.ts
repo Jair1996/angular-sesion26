@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
-import { HomePageComponent } from './page/home-page/home-page.component';
+import { ListUserPageComponent } from './pages/list-user-page/list-user-page.component';
 
 const routes: Routes = [
   {
@@ -9,16 +9,13 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'home',
-        component: HomePageComponent,
-      },
-      {
-        path: 'user',
-        loadChildren: () => import('../user/user.module').then((m) => m.UserModule),
+        path: 'list',
+        component: ListUserPageComponent,
       },
       {
         path: '**',
-        redirectTo: 'home',
+        pathMatch: 'full',
+        redirectTo: 'list',
       },
     ],
   },
@@ -28,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DashboardRoutingModule {}
+export class UserRoutingModule {}

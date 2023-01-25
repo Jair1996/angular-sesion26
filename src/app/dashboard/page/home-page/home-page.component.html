@@ -1,1 +1,50 @@
-<p>home-page works!</p>
+<div class="alert alert-primary mb-4" role="alert">Bienvenido <strong>Jair Deyner</strong></div>
+<div class="row">
+  <p class="fs-5 fw-bold text-primary">Esto es su información personal</p>
+</div>
+<div class="row">
+  <div class="col-6">
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Nombre</div>
+          {{ userLogged.name }}
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Username</div>
+          {{ userLogged.username }}
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Email</div>
+          {{ userLogged.email }}
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col-6">
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Ciudad</div>
+          {{ userLogged.address.city }}
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Calle</div>
+          {{ userLogged.address.street }}
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Suit</div>
+          {{ userLogged.address.suite }}
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

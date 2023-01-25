@@ -36,7 +36,7 @@ export class LoginPageComponent {
         return;
       }
 
-      this.router.navigate(['/dashboard/home']);
+      this.router.navigate(['/dashboard/user/list']);
     });
   }
 }
