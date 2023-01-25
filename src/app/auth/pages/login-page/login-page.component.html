@@ -1,1 +1,37 @@
-<p>login-page works!</p>
+<div class="mb-4">
+  <p class="text-primary fw-semibold font-monospace fs-3 text-center">Login</p>
+</div>
+<form (ngSubmit)="login()" [formGroup]="loginForm" autocomplete="off">
+  <div class="mb-3">
+    <label for="txtUsername" class="form-label">Username</label>
+    <input
+      [class.is-invalid]="isTheFieldInvalid('username')"
+      formControlName="username"
+      type="text"
+      class="form-control"
+      id="txtUsername" />
+    <div class="invalid-feedback">El campo es requerido</div>
+  </div>
+  <div class="mb-3">
+    <label for="txtPassword" class="form-label">Password</label>
+    <input
+      [class.is-invalid]="isTheFieldInvalid('password')"
+      formControlName="password"
+      type="password"
+      class="form-control"
+      id="txtPassword" />
+    <div class="invalid-feedback">El campo es requerido</div>
+  </div>
+  <div class="mb-3 row d-flex justify-content-center">
+    <button
+      *ngIf="!showSpinner"
+      [disabled]="loginForm.invalid"
+      type="submit"
+      class="btn btn-primary mb-3">
+      Login
+    </button>
+    <div *ngIf="showSpinner" class="d-flex justify-content-center">
+      <!-- <app-spinner></app-spinner> -->
+    </div>
+  </div>
+</form>
