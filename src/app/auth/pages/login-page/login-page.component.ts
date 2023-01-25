@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login-page',
@@ -27,7 +28,11 @@ export class LoginPageComponent {
 
     this.authService.login(username, password).subscribe((data) => {
       if (!data) {
-        console.log('usuario y contaseña incorecta');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Usuario o contraseña incorrecta',
+        });
         return;
       }
 
