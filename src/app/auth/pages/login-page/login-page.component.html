@@ -24,14 +24,14 @@
   </div>
   <div class="mb-3 row d-flex justify-content-center">
     <button
-      *ngIf="!showSpinner"
+      *ngIf="!loading"
       [disabled]="loginForm.invalid"
       type="submit"
       class="btn btn-primary mb-3">
       Login
     </button>
-    <div *ngIf="showSpinner" class="d-flex justify-content-center">
-      <!-- <app-spinner></app-spinner> -->
+    <div *ngIf="loading" class="d-flex justify-content-center">
+      <app-spinner></app-spinner>
     </div>
   </div>
 </form>
