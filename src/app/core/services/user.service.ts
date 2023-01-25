@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -10,6 +10,10 @@ export class UserService {
   private readonly url: string = 'https://jsonplaceholder.typicode.com/users';
 
   constructor(private http: HttpClient) {}
+
+  getUser(id: string): Observable<User> {
+    return this.http.get<User>(`${this.url}/${id}`).pipe(catchError(() => of({} as User)));
+  }
 
   getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.url);

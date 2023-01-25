@@ -1,0 +1,76 @@
+<div *ngIf="loading; else isLoaded" class="d-flex justify-content-center">
+  <app-spinner></app-spinner>
+</div>
+
+<ng-template #isLoaded>
+  <div *ngIf="!user?.id" class="alert alert-danger" role="alert">
+    El usuario con el id <strong>{{ userId }}</strong> no existe.
+  </div>
+
+  <div *ngIf="user?.id" class="row">
+    <div class="col-12">
+      <p class="fs-4">Detalle:</p>
+    </div>
+    <div class="col-6">
+      <ul class="list-group">
+        <li
+          class="list-group-item list-group-item-primary d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Nombre</div>
+            {{ user.name }}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Username</div>
+            {{ user.username }}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Email</div>
+            {{ user.email }}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Teléfono</div>
+            {{ user.phone }}
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-6">
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Ciudad</div>
+            {{ user.address.city }}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Calle</div>
+            {{ user.address.street }}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Suit</div>
+            {{ user.address.suite }}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Website</div>
+            <a href="https://{{ user.website }}" target="_blank">{{ user.website }}</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <button class="btn btn-primary" (click)="goBack()">Regresar</button>
+  </div>
+</ng-template>

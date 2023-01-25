@@ -16,7 +16,9 @@
       <td class="align-middle">{{ user.email }}</td>
       <td class="align-middle text-center">
         <div class="btn-group" role="group">
-          <a class="btn btn-warning"> Ver mapa </a>
+          <a [routerLink]="['/dashboard', 'user', 'detail', user.id]" class="btn btn-warning">
+            Ver más
+          </a>
         </div>
       </td>
     </tr>
